@@ -17,7 +17,7 @@ linuxserver/ffmpeg \
 -af "aresample=async=1" \
 -bufsize 4000k \
 -f flv \
-rtmp://live1a.dal1.vrf.tv:1935/static/$1 \
+"rtmp://localhost:1935/static/$1?password=Dk3u81BWqZAxka12sQ1GoiFJ" \
 -c:v copy \
 -c:a aac \
 -af "aresample=async=1" \

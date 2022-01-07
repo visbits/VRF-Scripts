@@ -17,10 +17,10 @@ linuxserver/ffmpeg \
 -af "aresample=async=1" \
 -bufsize 4000k \
 -f flv \
-rtmp://live1a.dal1.vrf.tv:1935/static/$1
+rtmp://live1a.dal1.vrf.tv:1935/static/$1 \
 -c:v copy \
 -c:a aac \
 -af "aresample=async=1" \
 -bufsize 4000k \
 -f flv \
-rtmps://a.rtmp.youtube.com/live2/$4
+rtmps://a.rtmp.youtube.com/live2/$3

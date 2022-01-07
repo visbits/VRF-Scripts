@@ -11,7 +11,7 @@ linuxserver/ffmpeg \
 -hide_banner \
 -loglevel warning \
 -err_detect explode \
--vsync cfr -stimeout 10000000 -rtsp_transport tcp -max_delay 10000000 -reorder_queue_size 30000 -thread_queue_size 1024 -i $2 \
+-vsync cfr -stimeout 10000000 -rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -i $2 \
 -c:v copy \
 -c:a aac \
 -af "aresample=async=1" \

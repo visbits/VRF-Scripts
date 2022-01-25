@@ -1,5 +1,5 @@
 #!/bin/bash
-# $arg1: stream name 
+# $arg1: stream name
 # $arg2: RTSP Url Video
 # $arg3: RTSP Url Audio
 # $arg4: YouTube stream key
@@ -12,17 +12,26 @@ linuxserver/ffmpeg \
 -hide_banner \
 -loglevel warning \
 -err_detect explode \
--vsync cfr -stimeout 10000000 -rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -i $2 \
--vsync cfr -stimeout 10000000 -rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -i $3 \
--c:v copy -map 0:v:0 \
--c:a aac -map 1:a:0  \
+-abort_on empty_output_stream \
+-rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 1024 -stimeout 10000000 \
+-i $2"?resolution=1920x1080&audio=0&video=1&compression=30&videocodec=h264&fps=30&videokeyframeinterval=60&videobitrate=2800&videomaxbitrate=4000" \
+-rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 1024 -stimeout 10000000 \
+-i $3"?audio=1&video=0" \
+-f fifo -fifo_format flv \
+-c:v copy \
+-c:a aac \
+-ar 44100 \
+-ab 128k \
 -af "aresample=async=1" \
--bufsize 4000k \
--f flv \
-"rtmp://localhost:1935/static/$1?password=Dk3u81BWqZAxka12sQ1GoiFJ" \
--c:v copy -map 0:v:0 \
--c:a aac -map 1:a:0  \
+-map 0:v -map 0:a \
+-drop_pkts_on_overflow 1 -attempt_recovery 1 -recovery_wait_time 5 -restart_with_keyframe 1 \
+rtmp://localhost:1935/static/$1 \
+-f fifo -fifo_format flv \
+-c:v copy \
+-c:a aac \
+-ar 44100 \
+-ab 128k \
 -af "aresample=async=1" \
--bufsize 4000k \
--f flv \
-rtmps://a.rtmp.youtube.com/live2/$4
+-map 0:v -map 0:a \
+-drop_pkts_on_overflow 1 -attempt_recovery 1 -recovery_wait_time 5 -restart_with_keyframe 1 \
+rtmps://a.rtmp.youtube.com/live2/$3

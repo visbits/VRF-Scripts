@@ -16,7 +16,7 @@ docker run --name $streamName  --restart unless-stopped -d --network host \
 linuxserver/ffmpeg \
 -strict experimental \
 -hide_banner \
--fflags nobuffer+discardcorrupt \
+-fflags nobuffer+discardcorrupt+igndts \
 -loglevel warning \
 -err_detect explode \
 -abort_on empty_output_stream \

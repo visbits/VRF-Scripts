@@ -10,7 +10,7 @@ videoUrl=$2
 audioUrl=$3
 youtubeKey=$4
 password=$5
-bitrate=2800
+bitrate=3400
 maxBitrate=4000
 
 docker rm -f $streamName

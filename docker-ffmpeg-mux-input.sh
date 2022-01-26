@@ -34,7 +34,7 @@ linuxserver/ffmpeg \
 -ab 128k \
 -af "aresample=async=1" \
 -map 0:v:0 -map 1:a:0 \
--drop_pkts_on_overflow 1 -attempt_recovery 1 -recovery_wait_time 5 -restart_with_keyframe 1 -recover_any_error 1\
+-drop_pkts_on_overflow 1 -attempt_recovery 1 -recovery_wait_time 5 -restart_with_keyframe 1 -recover_any_error 1 \
 rtmp://localhost:1935/static/$streamName?password=$password \
 -f fifo -fifo_format flv \
 -c:v copy \
@@ -43,5 +43,5 @@ rtmp://localhost:1935/static/$streamName?password=$password \
 -ab 128k \
 -af "aresample=async=1" \
 -map 0:v:0 -map 1:a:0 \
--drop_pkts_on_overflow 1 -attempt_recovery 1 -recovery_wait_time 5 -restart_with_keyframe 1 -recover_any_error 1\
+-drop_pkts_on_overflow 1 -attempt_recovery 1 -recovery_wait_time 5 -restart_with_keyframe 1 -recover_any_error 1 \
 rtmps://a.rtmp.youtube.com/live2/$youtubeKey

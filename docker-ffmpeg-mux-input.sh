@@ -23,9 +23,9 @@ linuxserver/ffmpeg \
 -loglevel warning \
 -err_detect explode \
 -abort_on empty_output_stream \
--rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -stimeout 4000000 \
+-rtsp_transport udp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -stimeout 4000000 \
 -i $videoUrl"?overlays=all&audio=0&video=1&resolution=1920x1080&compression=30&videocodec=h264&h264profile=main&fps=30&videokeyframeinterval=60&videobitrate=$bitrate&videomaxbitrate=$maxBitrate" \
--rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -stimeout 4000000 \
+-rtsp_transport udp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -stimeout 4000000 \
 -i $audioUrl"?audio=1&video=0" \
 -f fifo -fifo_format flv \
 -c:v copy \

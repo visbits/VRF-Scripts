@@ -20,7 +20,7 @@ linuxserver/ffmpeg \
 -loglevel warning \
 -err_detect explode \
 -abort_on empty_output_stream \
--rtsp_transport tcp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -stimeout 4000000 \
+-rtsp_transport udp -max_delay 3000000 -reorder_queue_size 30000 -thread_queue_size 4096 -stimeout 4000000 \
 -i $audioVideoUrl"?overlays=all&resolution=1920x1080&audio=1&video=1&compression=30&videocodec=h264&h264profile=main&fps=30&videokeyframeinterval=60&audioencoding=aac&videobitrate=$bitrate&videomaxbitrate=$maxBitrate" \
 -f fifo -fifo_format flv \
 -c:v copy \

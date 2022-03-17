@@ -7,8 +7,8 @@ streamName=$1
 audioVideoUrl=$2
 youtubeKey=$3
 password=$4
-bitrate=3400
-maxBitrate=4000
+bitrate=4200
+maxBitrate=5000
 mode=tcp
 
 docker rm -f $streamName
